@@ -33,10 +33,10 @@ Each directory has instructions related to the kind of file you have to place in
 These scripts are assuming Linux operation system (Ubuntu 18.04) and Vivado 2018.2.
 
 Follow these instructions to recreate the Vivado and SDK projects:
- - Open the **build.sh** script and edit the first two lines to setup the environment variables:
+ - Open the **build.sh** script and edit the first lines to setup these environment variables:
     - **VIVADO**: path to the Vivado install dir;
-    - **VIVADO_DESIGN_NAME**: mandatory name of the design
-    - **XIL_APP_NAME**: used only in projects with software. Not used in this design; 
+    - **VIVADO_DESIGN_NAME**: mandatory name of the design;
+    - **XIL_APP_NAME**: used only in projects with software;
     - **VIVADO_TOP_NAME**: set the top name (optional).  
  - run *build.sh*
 
