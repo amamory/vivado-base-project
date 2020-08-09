@@ -41,6 +41,7 @@ set orig_proj_dir "[file normalize "$origin_dir/vivado/$design_name"]"
 ## Delete log and journal
 file delete -force {*}[glob vivado*.backup.jou]
 file delete -force {*}[glob vivado*.backup.log]
+file delete -force {*}[glob vivado*.backup.str]
 file delete -force .Xil/
 
 # Create a fresh project
