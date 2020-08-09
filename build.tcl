@@ -38,6 +38,11 @@ set origin_dir "."
 # Set the directory path for the original project from where this script was exported
 set orig_proj_dir "[file normalize "$origin_dir/vivado/$design_name"]"
 
+## Delete log and journal
+file delete {*}[glob vivado*.backup.jou]
+file delete {*}[glob vivado*.backup.log]
+file delete -force .Xil/
+
 # Create a fresh project
 file delete -force ${orig_proj_dir}
 file mkdir ${orig_proj_dir}
