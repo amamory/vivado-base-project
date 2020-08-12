@@ -4,7 +4,7 @@ This repo contains scripts to recreate **DESCRIBE THE MODULE HERE**. The project
 
 # How to Use Vivado
 
-[Vipin Kizheppatt](https://www.youtube.com/watch?v=ahws--oNpBc&list=PLXHMvqUANAFOviU0J8HSp0E91lLJInzX1) provides a great set of more than 70 extremely didatioc videos. As a personal experience, I would strongly suggest that as a starting point.
+[Vipin Kizheppatt](https://www.youtube.com/watch?v=ahws--oNpBc&list=PLXHMvqUANAFOviU0J8HSp0E91lLJInzX1) provides a great set of more than 70 extremely didatic videos. As a personal experience, I would strongly suggest that as a starting point.
 
 # Module/IP design
 
