@@ -2,6 +2,7 @@
 # build.tcl: re-creating a Vivado project
 #
 #*****************************************************************************************
+package require fileutil
 
 # Check the version of Vivado used
 set version_required "2018.2"
@@ -97,7 +98,6 @@ if {[string equal [get_filesets -quiet sources_1] ""]} {
 set obj [get_filesets sources_1]
 set_property "top" "${top_name}" $obj
 
-package require fileutil
 # Insert all the vhdl, sv, and verilog source files from ./hw/hdl into the project
 # find recursively all files with extensions vhd, v, sv 
 set hdl_files [fileutil::findByPattern $origin_dir/hw/hdl/ -glob {*.vhd *.v *.sv}]
@@ -175,7 +175,8 @@ if {[string equal [get_filesets -quiet sim_1] ""]} {
 # Set 'sim_1' fileset object
 # Import testbenches, waveform files, etc if they exist
 set obj [get_filesets sim_1]
-set sim_files [glob -nocomplain -directory $origin_dir/hw/hdl/sim *{*.vhd,*.v,*.sv}*]
+# find recursively all files with extensions vhd, v, sv 
+set sim_files [fileutil::findByPattern $origin_dir/hw/sim/ -glob {*.vhd *.v *.sv}]
 
 # if there is a testbench, then add few more properties 
 if {[llength $sim_files] > 0} {
@@ -206,7 +207,7 @@ if {[llength $sim_files] > 0} {
 }
 
 # waveform files are simply added to the project. no property is set
-set wcfg_files [glob -nocomplain -directory $origin_dir/hw/hdl/sim "*.wcfg"]
+set wcfg_files [glob -nocomplain -directory $origin_dir/hw/sim "*.wcfg"]
 add_files -quiet -fileset sim_1 $wcfg_files
 
 
