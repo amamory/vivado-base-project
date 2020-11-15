@@ -97,9 +97,11 @@ if {[string equal [get_filesets -quiet sources_1] ""]} {
 set obj [get_filesets sources_1]
 set_property "top" "${top_name}" $obj
 
-
+package require fileutil
 # Insert all the vhdl, sv, and verilog source files from ./hw/hdl into the project
-set hdl_files [glob -nocomplain -directory $origin_dir/hw/hdl/ *{*.vhd,*.v,*.sv}*]
+# find recursively all files with extensions vhd, v, sv 
+set hdl_files [fileutil::findByPattern ../../rtl/ -glob {*.vhd *.v *.sv}]
+#set hdl_files [glob -nocomplain -directory $origin_dir/hw/hdl/ *{*.vhd,*.v,*.sv}*]
 puts $hdl_files
 
 foreach hdl_file $hdl_files {
