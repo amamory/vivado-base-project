@@ -44,7 +44,7 @@ Follow these instructions to recreate the Vivado and SDK projects:
     - **VIVADO_TOP_NAME**: set the top name (optional).  
  - run *build.sh*
 
-These scripts will recreate the entire Vivado project, compile the design, generate the bitstream, export the hardware to SDK, create the SDK projects, import the source files, build all projects, and finally download both the bitstream and the elf application. Hopefully, all these steps will be executed automatically.
+These scripts will recreate the entire Vivado project, compile the design, generate the bitstream, update the bitstream with the elf file, export the hardware to SDK, create the SDK projects, import the source files, build all projects, and finally download both the bitstream and the elf application. Hopefully, all these steps will be executed automatically.
 
 # How to update the scripts
 
