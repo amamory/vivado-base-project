@@ -14,6 +14,14 @@ if [ -f $VIVADO ]; then
   echo "######## Synthesis ######"
   echo "#########################"
   $VIVADO -mode batch -source build_bitstream_export_sdk.tcl -notrace
+  # If elf file exists, then this is a processor based design.
+  # This means that the processor's RAM content must be loaded into the bitstream
+  if [ -f "./src/processor-based/image.elf" ]; then
+    echo "##############################################"
+    echo "######## Loading Elf into the bitstream ######"
+    echo "##############################################"
+    $VIVADO -mode batch -source extract_bmm.tcl -notrace
+  fi
   # count xml files to decide whether this project is a leaf custom IP or a design that uses custom IPs
   # For instance, considering this command executed in the project root dir:
   #$ find hw/ips/*/ -name *.xml
